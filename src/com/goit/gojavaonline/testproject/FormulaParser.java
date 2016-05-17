@@ -165,7 +165,9 @@ public class FormulaParser {
         formulaRPN = new ArrayList<>();
         operationsStack = new Stack<>();
 
-        formulaIN.forEach(this::processFormulaElement);
+        for (FormulaElement formulaElement : formulaIN) {
+            processFormulaElement(formulaElement);
+        }
 
         while (!operationsStack.isEmpty()) {
             formulaRPN.add(operationsStack.pop());

@@ -3,5 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <servlet>
+        <servlet-name>CalculateServlet</servlet-name>
+        <servlet-class>com.goit.gojavaonline.testproject.SimpleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DataBaseServlet</servlet-name>
+        <servlet-class>com.goit.gojavaonline.testproject.DBServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalculateServlet</servlet-name>
+        <url-pattern>/calculate</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DataBaseServlet</servlet-name>
+        <url-pattern>/date</url-pattern>
+    </servlet-mapping>
 
 </web-app>

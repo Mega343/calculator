@@ -10,7 +10,8 @@ public class DBWorker {
     private final String PASSWORD = "3433905";
     private final String INSERT_NEW = "INSERT INTO results VALUES(?,?,?)";
 
-    public void dbAdder(String userInput, String result) {
+
+    public void addFormulaToDatabase(String userInput, String result) {
         Connection connection;
         PreparedStatement preparedStatement;
 
@@ -34,9 +35,10 @@ public class DBWorker {
 
     }
 
-//    public static void main(String[] args) {
-//        dbAdder("123.12 + 34 * (12 - 10)", "191.12");
-//    }
+  public static void main(String[] args) {
+      DBWorker dbWorker = new DBWorker();
+      dbWorker.addFormulaToDatabase("123.12 + 34 * (12 - 10)", "191.12");
+    }
 
 
 }

@@ -4,7 +4,7 @@ package com.goit.gojavaonline.testproject;
 public class Main {
 
 
-    public static String test(String userInput) {
+    public static String calculateUserFormula(String userInput) {
         String result;
         double calc;
         try {
