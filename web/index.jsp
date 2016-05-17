@@ -12,7 +12,7 @@
 
     <fieldset style="border:1px #00BFFF solid;" >
       <a href="http://localhost:8080"><img src="calculator.jpg" align="left"width="200" height="120"></a>
-      <br>
+      <br> <p>Поддерживаемые математические функции: sin, cos, tn, ln, lg, sqrt, а также возведение в степень и константы Е и ПИ.</p>
       <p>  Формула: <input type="text" name="formula" size=26>
 
         <input type="submit" value="Расчитать">

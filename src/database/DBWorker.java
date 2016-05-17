@@ -1,7 +1,10 @@
 package database;
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
-import java.sql.*;
+import com.mysql.jdbc.Driver;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DBWorker {
     public  int counter = 0;
@@ -9,24 +12,23 @@ public class DBWorker {
     private final String USERNAME = "root";
     private final String PASSWORD = "3433905";
     private final String INSERT_NEW = "INSERT INTO results VALUES(?,?,?)";
+    private Connection connection;
+    private PreparedStatement preparedStatement;
 
 
-    public void addFormulaToDatabase(String userInput, String result) {
-        Connection connection;
-        PreparedStatement preparedStatement;
-
+    public void addFormulaToDatabase(String userInput, String calculateFormulaResult) {
 
         try {
-            Driver driver = new FabricMySQLDriver();
+            Driver driver = new Driver();
             DriverManager.registerDriver(driver);
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             preparedStatement = connection.prepareStatement(INSERT_NEW);
             preparedStatement.setInt(1, counter++);
             preparedStatement.setString(2, userInput);
-            preparedStatement.setString(3, result);
-            preparedStatement.execute();
+            preparedStatement.setString(3, calculateFormulaResult);
+            preparedStatement.executeUpdate();
+            connection.commit();
             connection.close();
-
         }
 
         catch (SQLException e){
@@ -35,10 +37,11 @@ public class DBWorker {
 
     }
 
-  public static void main(String[] args) {
-      DBWorker dbWorker = new DBWorker();
-      dbWorker.addFormulaToDatabase("123.12 + 34 * (12 - 10)", "191.12");
+
+    public Connection getConnection() {
+        return connection;
     }
+
 
 
 }

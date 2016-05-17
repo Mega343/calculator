@@ -4,14 +4,14 @@ package com.goit.gojavaonline.testproject;
 public class Main {
 
 
-    public static String calculateUserFormula(String userInput) {
+    public static String calculateUserFormula(String userInputFormula) {
         String result;
-        double calc;
+        double resultCalculateFormula;
         try {
-            FormulaParser parser = new FormulaParser(userInput);
+            FormulaParser parser = new FormulaParser(userInputFormula);
             Function function = parser.parse();
-            calc = function.calculate();
-            result = Double.toString(calc);
+            resultCalculateFormula = function.calculate();
+            result = Double.toString(resultCalculateFormula);
         }
         catch (Exception e) {
            return "Некоректный ввод";
