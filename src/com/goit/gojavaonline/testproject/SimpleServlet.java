@@ -1,4 +1,5 @@
 package com.goit.gojavaonline.testproject;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +23,10 @@ public class SimpleServlet extends HttpServlet {
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setStatus(200);
 
-        String userInputForumala = request.getParameter("formula");
-        String result = Main.calculateUserFormula(userInputForumala);
+        String userInputFormula = request.getParameter("formula");
+        String result = Main.calculateUserFormula(userInputFormula);
         request.setAttribute("result", result);
-        request.setAttribute("formula", userInputForumala);
+        request.setAttribute("formula", userInputFormula);
         request.getRequestDispatcher("result.jsp").forward(request, response);
     }
 }

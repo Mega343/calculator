@@ -12,6 +12,7 @@ public class DBWorker {
     private final String USERNAME = "root";
     private final String PASSWORD = "3433905";
     private final String INSERT_NEW = "INSERT INTO results VALUES(?,?,?)";
+    private final String DELETE_FROM_DB = "DELETE FROM results WHERE ID=?";
     private Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -35,6 +36,24 @@ public class DBWorker {
             System.out.println("Couldn't download class driver");
         }
 
+    }
+
+    public void deleteDataFromDataBase(int id) {
+
+        try {
+            Driver driver = new Driver();
+            DriverManager.registerDriver(driver);
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            preparedStatement = connection.prepareStatement(DELETE_FROM_DB);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            connection.commit();
+            connection.close();
+        }
+
+        catch (SQLException e) {
+            System.out.println("Couldn't download class driver");
+        }
     }
 
 

@@ -11,6 +11,14 @@
         <servlet-name>DataBaseServlet</servlet-name>
         <servlet-class>com.goit.gojavaonline.testproject.DBServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>com.goit.gojavaonline.testproject.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertDatabaseServlet</servlet-name>
+        <servlet-class>com.goit.gojavaonline.testproject.InsertDatabaseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CalculateServlet</servlet-name>
         <url-pattern>/calculate</url-pattern>
@@ -19,6 +27,14 @@
     <servlet-mapping>
         <servlet-name>DataBaseServlet</servlet-name>
         <url-pattern>/date</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertDatabaseServlet</servlet-name>
+        <url-pattern>/InsertDatabaseServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
